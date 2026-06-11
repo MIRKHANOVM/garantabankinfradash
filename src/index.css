@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ───────────────────────── Theme tokens as CSS variables ─────────────────────
+   Light   = :root (default)
+   Dark    = [data-theme="dark"]
+   Exec-L  = [data-theme="exec-light"]   ← Executive Light Neumorphism
+   Exec-D  = [data-theme="exec-dark"]    ← Executive Dark  Neumorphism
+   Values mirror theme.ts exactly.                                              */
+
+/* ── 1. Light (unchanged) ───────────────────────────────────────────────────── */
+:root {
+  color-scheme: light;
+
+  --bg-primary:   #f1f3f6;
+  --bg-secondary: #f6f7f9;
+  --bg-card:      #ffffff;
+  --bg-chip:      #f3f4f6;
+  --bg-track:     #eaecef;
+
+  --text-primary:       #111827;
+  --text-strong:        #1f2937;
+  --text-title:         #374151;
+  --text-secondary:     #6b7280;
+  --text-muted:         #9ca3af;
+  --text-seg-inactive:  #93a4c2;
+
+  --border-default: #e9ebef;
+  --border-subtle:  #eef0f3;
+
+  --success:       #16a34a;
+  --warning:       #f97316;
+  --error:         #dc2626;
+  --info:          #2563eb;
+  --accent-purple: #9333ea;
+
+  --dot-success: #22c55e;
+  --dot-warning: #f97316;
+  --dot-error:   #ef4444;
+  --dot-info:    #2563eb;
+
+  --chart-primary:    #2563eb;
+  --chart-secondary:  #16a34a;
+  --chart-forecast:   #16a34a;
+  --chart-threshold:  #ef4444;
+  --chart-grid:       #eef0f3;
+
+  --shadow-card: 0 1px 2px rgba(16,24,40,0.04), 0 1px 3px rgba(16,24,40,0.06);
+  --shadow-glow: none;
+}
+
+/* ── 2. Dark (unchanged) ────────────────────────────────────────────────────── */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg-primary:   linear-gradient(135deg, #0a101c 0%, #0b1320 55%, #0d1626 100%);
+  --bg-secondary: #181f2c;
+  --bg-card:      #141b29;
+  --bg-chip:      #1c2431;
+  --bg-track:     #232c3c;
+
+  --text-primary:       #f4f7fb;
+  --text-strong:        #e6eaf2;
+  --text-title:         #c7cedc;
+  --text-secondary:     #8b94a5;
+  --text-muted:         #687085;
+  --text-seg-inactive:  #6e7686;
+
+  --border-default: #283143;
+  --border-subtle:  #212a39;
+
+  --success:       #5cc91b;
+  --warning:       #f97316;
+  --error:         #ef4444;
+  --info:          #4884ec;
+  --accent-purple: #a855f7;
+
+  --dot-success: #5cc91b;
+  --dot-warning: #f97316;
+  --dot-error:   #ef4444;
+  --dot-info:    #4884ec;
+
+  --chart-primary:   #4884ec;
+  --chart-secondary: #5cc91b;
+  --chart-forecast:  #5cc91b;
+  --chart-threshold: #ef4444;
+  --chart-grid:      #1e2633;
+
+  --shadow-card: inset 0 1px 0 rgba(255,255,255,0.045),
+    0 2px 8px rgba(0,0,0,0.30), 0 6px 18px rgba(0,0,0,0.28);
+  --shadow-glow: 0 0 0 1px rgba(255,255,255,0.03), 0 8px 28px rgba(0,0,0,0.40);
+}
+
+/* ── 3. Executive Light — Neumorphism ───────────────────────────────────────── */
+/*
+   Canvas: #E3E7EC (L*=91.5) warm light-grey.
+   Card:   #F5F7FA (L*=97.2) near-white — CR 1.157 vs canvas.
+   Secondary: #DDE2E8 recessed panels. Shadows and corners unchanged.
+*/
+:root[data-theme="exec-light"] {
+  color-scheme: light;
+
+  --bg-primary:   #e3e7ec;
+  --bg-secondary: #dde2e8;
+  --bg-card:      #f5f7fa;
+  --bg-chip:      #e8ecf1;
+  --bg-track:     #d8dce2;
+
+  --text-primary:       #1e2635;
+  --text-strong:        #2c3a4f;
+  --text-title:         #3d4f66;
+  --text-secondary:     #5c6e85;
+  --text-muted:         #8a99ab;
+  --text-seg-inactive:  #8a99ab;
+
+  --border-default: transparent;
+  --border-subtle:  #d8dce4;
+
+  --success:       #1a8a4a;
+  --warning:       #d97706;
+  --error:         #c62828;
+  --info:          #1d4ed8;
+  --accent-purple: #7c3aed;
+
+  --dot-success: #16a34a;
+  --dot-warning: #f59e0b;
+  --dot-error:   #dc2626;
+  --dot-info:    #2563eb;
+
+  --chart-primary:   #1d4ed8;
+  --chart-secondary: #1a8a4a;
+  --chart-forecast:  #1a8a4a;
+  --chart-threshold: #c62828;
+  --chart-grid:      #dde1e8;
+
+  /* Raised neumorphic card: white top-left + cool-grey bottom-right */
+  --shadow-card: 6px 6px 14px rgba(166,176,190,0.70),
+                -6px -6px 14px rgba(255,255,255,0.90);
+  --shadow-glow: 8px 8px 20px rgba(160,170,185,0.65),
+                -8px -8px 20px rgba(255,255,255,0.85);
+}
+
+/* ── 4. Executive Dark — Neumorphism ────────────────────────────────────────── */
+/*
+   Base surface: #242830 (graphite canvas — not black).
+   Cards: #2A2F3A (raised above canvas).
+   Raised: subtle white-tint top-left + deep shadow bottom-right.
+   Border: transparent.
+*/
+:root[data-theme="exec-dark"] {
+  color-scheme: dark;
+
+  --bg-primary:   #242830;
+  --bg-secondary: #1e2228;
+  --bg-card:      #2a2f3a;
+  --bg-chip:      #323845;
+  --bg-track:     #1e2228;
+
+  --text-primary:       #e8edf4;
+  --text-strong:        #d4dae6;
+  --text-title:         #b0bac8;
+  --text-secondary:     #7e8a9c;
+  --text-muted:         #5a6472;
+  --text-seg-inactive:  #5a6472;
+
+  --border-default: transparent;
+  --border-subtle:  #323845;
+
+  --success:       #4caf72;
+  --warning:       #f59e0b;
+  --error:         #f87171;
+  --info:          #60a5fa;
+  --accent-purple: #a78bfa;
+
+  --dot-success: #4caf72;
+  --dot-warning: #f59e0b;
+  --dot-error:   #f87171;
+  --dot-info:    #60a5fa;
+
+  --chart-primary:   #60a5fa;
+  --chart-secondary: #4caf72;
+  --chart-forecast:  #4caf72;
+  --chart-threshold: #f87171;
+  --chart-grid:      #323845;
+
+  /* Graphite raised: dim white highlight + deep black shadow */
+  --shadow-card: 5px 5px 12px rgba(0,0,0,0.50),
+                -5px -5px 12px rgba(255,255,255,0.05);
+  --shadow-glow: 7px 7px 18px rgba(0,0,0,0.55),
+                -7px -7px 18px rgba(255,255,255,0.04);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Base layout                                                                  */
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background: var(--bg-primary);
+}
+
+.app-bg {
+  background: var(--bg-primary);
+}
+
+* {
+  font-feature-settings: "tnum" on, "lnum" on;
+}
+
+/* ───────────────────────── Smooth 250ms theme transition ─────────────────────
+   Colour-only: layout never animates.                                          */
+*,
+*::before,
+*::after {
+  transition-property: background-color, background-image, border-color, color,
+    fill, stroke, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: ease;
+}
+
+.no-transitions *,
+.no-transitions *::before,
+.no-transitions *::after {
+  transition: none !important;
+}

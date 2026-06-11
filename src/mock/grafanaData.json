@@ -1,0 +1,60 @@
+{
+  "_meta": {
+    "source": "Mock Grafana",
+    "datasource": "Prometheus (simulated)",
+    "refreshIntervalMs": 30000,
+    "description": "Simulated monitoring snapshot. Replace with real Grafana/Prometheus API calls."
+  },
+  "summary": {
+    "activeIncidents": 0,
+    "branchesAtRisk": 0
+  },
+  "servers": {
+    "total": 184,
+    "physical": 128,
+    "virtual": 56,
+    "active": 179,
+    "maintenance": 5,
+    "availabilityPct": 99.97,
+    "availabilityTrendPct": 2
+  },
+  "hosts": {
+    "total": 317,
+    "active": 295,
+    "unavailable": 22,
+    "reboots24h": 18,
+    "rebootsAvgPerDay": 12,
+    "rebootsTrendPct": -15,
+    "rebootHistory": [4, 6, 5, 8, 7, 9, 8, 11, 10, 12, 11, 14, 13, 16, 15, 18]
+  },
+  "ssd": {
+    "usedTb": 2.9,
+    "totalTb": 3.8,
+    "growthGbPerDay": 200,
+    "daysRemaining": 29,
+    "usagePct": 78,
+    "forecastFullDate": "22 июня 2024 г.",
+    "history": [1.0, 1.15, 1.4, 1.55, 1.75, 2.0, 2.2, 2.45, 2.6, 2.9],
+    "forecast": [2.9, 3.05, 3.25, 3.45]
+  },
+  "ram": {
+    "usedTb": 18.2,
+    "totalTb": 24.6,
+    "availableTb": 6.4,
+    "usagePct": 74,
+    "growthTbPerWeek": 0.4,
+    "weeklyTrendPct": 3,
+    "trend": [20, 24, 22, 30, 34, 31, 40, 44, 48, 52, 58, 63, 68, 74, 82]
+  },
+  "cpu": {
+    "avgLoadPct": 41,
+    "tempAvgC": 62,
+    "tempPeakC": 72,
+    "criticalEventsToday": 0,
+    "loadHistory": [
+      38, 41, 39, 44, 52, 48, 43, 41, 39, 42, 45, 41,
+      38, 36, 40, 44, 47, 50, 53, 49, 44, 41, 39, 41
+    ],
+    "miniTrend": [30, 34, 38, 41, 39, 44, 41]
+  }
+}
